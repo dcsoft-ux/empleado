@@ -1,19 +1,42 @@
 .ContainerDetalleEmpleado
+  width: 92%
+  max-width: 900px
+  margin: 2rem auto 3rem
   display: grid
-  align-items: center
-  justify-content: center
+  gap: 1.25rem
+  padding: 2rem
+  background: rgba(255,255,255,.92)
+  border: 1px solid #dbe7f5
+  border-radius: 24px
+  box-shadow: 0 18px 42px rgba(15,23,42,.07)
+
+.ContainerDetalleEmpleadoName,
+.ContainerDetalleEmpleadoTittle
+  text-align: center
+
+.ContainerDetalleEmpleadoTable
   width: 100%
-  height: 100%
-  margin-top: 70px
-  .ContainerDetalleEmpleadoName
-    text-align: center
-  .ContainerDetalleEmpleadoTittle
-    text-align: center
-  .ContainerDetalleEmpleadoTable
-    align-items: center
-    justify-content: center
-    .ContainerDetalleEmpleadoTableList
-      align-items: center
-      justify-content: center
-      .ContainerDetalleEmpleadoTableListItem
-        text-align: center
+  overflow-x: auto
+  padding: .25rem
+
+.ContainerDetalleEmpleadoTableList
+  width: 100%
+  border-collapse: separate
+  border-spacing: 0 10px
+
+.ContainerDetalleEmpleadoTableListItem
+  padding: 1rem .85rem
+  text-align: center
+  background: #ffffff
+  border-top: 1px solid #eef2f7
+  border-bottom: 1px solid #eef2f7
+
+  &:first-child
+    border-left: 1px solid #eef2f7
+    border-top-left-radius: 14px
+    border-bottom-left-radius: 14px
+
+  &:last-child
+    border-right: 1px solid #eef2f7
+    border-top-right-radius: 14px
+    border-bottom-right-radius: 14px

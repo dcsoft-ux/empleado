@@ -1,0 +1,91 @@
+/* line 7, static/base/nav.scss */
+.navigator {
+  margin: 0;
+  width: 100%;
+  min-height: 72px;
+  padding: 0.75rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(180px, 2fr);
+  align-items: center;
+  gap: 1rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.22);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000; }
+  /* line 25, static/base/nav.scss */
+  .navigator .navigatorLink {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0; }
+  /* line 34, static/base/nav.scss */
+  .navigator .navigatorLinkItem,
+  .navigator .navigatorLinkItembtn {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    /* line 41, static/base/nav.scss */
+    .navigator .navigatorLinkItem a,
+    .navigator .navigatorLinkItembtn a {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.8rem 0.85rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 14px;
+      transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+      /* line 54, static/base/nav.scss */
+      .navigator .navigatorLinkItem a:hover, .navigator .navigatorLinkItem a:focus,
+      .navigator .navigatorLinkItembtn a:hover,
+      .navigator .navigatorLinkItembtn a:focus {
+        background-color: rgba(255, 255, 255, 0.14);
+        transform: translateY(-1px);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08); }
+  /* line 63, static/base/nav.scss */
+  .navigator .navigatorLinkItemImg {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22)); }
+  /* line 70, static/base/nav.scss */
+  .navigator .navigatorLinkbtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+  /* line 76, static/base/nav.scss */
+  .navigator .btnMenu {
+    width: 100%;
+    max-width: 190px; }
+
+@media (max-width: 992px) {
+  /* line 83, static/base/nav.scss */
+  .navigator {
+    grid-template-columns: 1fr;
+    padding: 0.9rem; }
+    /* line 87, static/base/nav.scss */
+    .navigator .navigatorLink {
+      grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    /* line 91, static/base/nav.scss */
+    .navigator .navigatorLinkbtn {
+      justify-content: center; } }
+
+@media (max-width: 576px) {
+  /* line 99, static/base/nav.scss */
+  .navigator .navigatorLink {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* line 105, static/base/nav.scss */
+  .navigator .navigatorLinkItem a,
+  .navigator .navigatorLinkItembtn a {
+    font-size: 0.92rem;
+    padding: 0.75rem 0.6rem; } }

@@ -1,0 +1,10 @@
+/* line 1, static/department/footer.scss */
+.footer {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: blue;
+  position: fixed;
+  bottom: 0; }

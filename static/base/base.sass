@@ -7,3 +7,97 @@
 @import '../empleado/ActualizarEmpleado.sass'
 @import '../empleado/EliminarEmpleado.sass'
 @import '../department/main.scss'
+@import './nav.scss'
+@import '../department/footer.scss'
+
+$bg-main: linear-gradient(180deg, #eef4ff 0%, #f8fbff 48%, #f4f7fb 100%)
+$surface: rgba(255, 255, 255, 0.94)
+$surface-strong: #ffffff
+$text-main: #0f172a
+$text-soft: #475569
+$border-soft: #dbe7f5
+$primary: #2563eb
+$primary-strong: #1d4ed8
+$success: #15803d
+$warning: #d97706
+$danger: #dc2626
+$shadow-soft: 0 12px 40px rgba(15, 23, 42, 0.08)
+$shadow-card: 0 18px 50px rgba(37, 99, 235, 0.10)
+$radius-lg: 24px
+$radius-md: 16px
+$radius-sm: 12px
+
+*
+  box-sizing: border-box
+
+html
+  scroll-behavior: smooth
+
+body
+  margin: 0
+  min-height: 100vh
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  color: $text-main
+  background: $bg-main
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  line-height: 1.15
+  color: $text-main
+
+p
+  color: $text-soft
+  line-height: 1.6
+
+a
+  transition: all .25s ease
+
+img
+  max-width: 100%
+  display: block
+
+input, select, textarea
+  width: 100%
+  min-height: 46px
+  padding: .85rem 1rem
+  border: 1px solid $border-soft
+  border-radius: $radius-sm
+  background-color: rgba(255, 255, 255, 0.95)
+  color: $text-main
+  outline: none
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease
+
+  &:focus
+    border-color: rgba(37, 99, 235, .55)
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .12)
+
+button,
+input[type="submit"],
+input[type="button"]
+  min-height: 46px
+  padding: .8rem 1.15rem
+  border: none
+  border-radius: 999px
+  background: linear-gradient(135deg, $primary 0%, $primary-strong 100%)
+  color: #fff
+  font-weight: 700
+  letter-spacing: .2px
+  cursor: pointer
+  box-shadow: 0 12px 24px rgba(37, 99, 235, .18)
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease
+
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 16px 28px rgba(37, 99, 235, .24)
+    filter: brightness(1.02)
+
+table
+  width: 100%
+  border-collapse: collapse
+
+main
+  padding-bottom: 110px
+
+@media (max-width: 768px)
+  body
+    font-size: 15px

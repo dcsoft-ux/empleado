@@ -1,0 +1,13 @@
+/* line 5, static/department/footer.scss */
+.footer {
+  width: 100%;
+  min-height: 64px;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.92);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  margin-top: 3rem; }

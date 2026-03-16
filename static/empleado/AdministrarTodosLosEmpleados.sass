@@ -1,97 +1,156 @@
+$panel-bg: rgba(255,255,255,.92)
+$head-bg: #eff6ff
+$border: #dbe7f5
+$text: #0f172a
+$muted: #475569
+$success: #15803d
+$warning: #d97706
+$danger: #dc2626
+
 .ContainerAdministrarTodosLosEmpleados
+  width: 94%
+  max-width: 1250px
+  margin: 2rem auto 3rem
   display: grid
+  gap: 1.5rem
+
+.ContainerAdministrarTodosLosEmpleadosTitulo
+  display: grid
+  place-items: center
+  text-align: center
+  gap: .45rem
+
+.ContainerAdministrarTodosLosEmpleadosBuscador
+  display: grid
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+  gap: 1rem
+
+.ContainerAdministrarTodosLosEmpleadosBuscadorEspacio
+  padding: 1rem
+  background: rgba(255,255,255,.70)
+  border: 1px solid #dbe7f5
+  border-radius: 18px
+  box-shadow: 0 10px 24px rgba(15,23,42,.04)
+
+.ContainerAdministrarTodosLosEmpleadosDatos
+  padding: 1rem
+  background: $panel-bg
+  border: 1px solid $border
+  border-radius: 24px
+  box-shadow: 0 18px 42px rgba(15,23,42,.07)
+  overflow-x: auto
+
+.ContainerAdministrarTodosLosEmpleadosDatosTable
+  width: 100%
+  border-collapse: separate
+  border-spacing: 0 10px
+
+.ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem
+  padding: 1rem .85rem
+  text-align: center
+  color: $text
+  background: $head-bg
+  border-top: 1px solid $border
+  border-bottom: 1px solid $border
+  font-weight: 700
+
+  &:first-child
+    border-left: 1px solid $border
+    border-top-left-radius: 14px
+    border-bottom-left-radius: 14px
+
+  &:last-child
+    border-right: 1px solid $border
+    border-top-right-radius: 14px
+    border-bottom-right-radius: 14px
+
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem
+  padding: 1rem .85rem
+  text-align: center
+  color: $muted
+  background: #ffffff
+  border-top: 1px solid #eef2f7
+  border-bottom: 1px solid #eef2f7
+
+  &:first-child
+    border-left: 1px solid #eef2f7
+    border-top-left-radius: 14px
+    border-bottom-left-radius: 14px
+
+  &:last-child
+    border-right: 1px solid #eef2f7
+    border-top-right-radius: 14px
+    border-bottom-right-radius: 14px
+
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer,
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar,
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar
+  display: inline-flex
   align-items: center
   justify-content: center
-  width: 100%
-  height: 100%
-  margin-top: 70px
-  .ContainerAdministrarTodosLosEmpleadosTitulo
-    display: grid
-    align-items: center
-    justify-content: center
-    width: 100%
-    height: 100%
-  .ContainerAdministrarTodosLosEmpleadosBuscador
-    display: grid
-    align-items: center
-    justify-content: center
-    width: 100%
-    height: 100%
-    grid-template-columns: repeat(2, 1fr)
-    .ContainerAdministrarTodosLosEmpleadosBuscadorEspacio
-      margin: 10px
-  .ContainerAdministrarTodosLosEmpleadosDatos
-    display: grid
-    align-items: center
-    justify-content: center
-    background-color: #ebebeb
-    border: 1px solid #000
-    border-radius: 20px
-    width: 100%
-    .ContainerAdministrarTodosLosEmpleadosDatosTable
+  min-width: 74px
+  padding: .55rem .85rem
+  margin: .2rem
+  border-radius: 999px
+  text-decoration: none
+  font-weight: 700
+  transition: transform .2s ease, filter .2s ease
+
+  &:hover
+    transform: translateY(-1px)
+    filter: brightness(1.02)
+
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer
+  color: #fff
+  background-color: $success
+
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar
+  color: #fff
+  background-color: $warning
+
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar
+  color: #fff
+  background-color: $danger
+
+ul.pagination
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  gap: .6rem
+  padding: 0
+  margin: 1.2rem 0 0
+  list-style: none
+
+  li
+    display: inline-flex
+
+    a
+      display: inline-flex
       align-items: center
       justify-content: center
-      margin: 10px
-      width: 100%
-      .ContainerAdministrarTodosLosEmpleadosDatosTableHead
-        align-items: center
-        justify-content: center
-        margin: 10px
-        border-radius: 20px
-        .ContainerAdministrarTodosLosEmpleadosDatosTableHeadList
-          align-items: center
-          justify-content: center
-          margin: 10px
-          .ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem
-            align-items: center
-            justify-content: center
-            margin: 10px
-            border-radius: 20px
-            border: 1px solid #fff
-            background-color: #fff
-            width: 150px
-      .ContainerAdministrarTodosLosEmpleadosDatosTableBody
-        align-items: center
-        justify-content: center
-        margin: 10px
-        width: 100%
-        .ContainerAdministrarTodosLosEmpleadosDatosTableBodyList
-          align-items: center
-          justify-content: center
-          margin: 10px
-          .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem
-            align-items: center
-            justify-content: center
-            text-align: center
-            margin: 10px
-            .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer
-              text-decoration: none
-              color: #075800
-              margin: 10px
-            .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar
-              text-decoration: none
-              color: #f6fa0e
-              margin: 10px
-            .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar
-              text-decoration: none
-              color: #ff0808
-              margin: 10px
-ul.pagination
-  display: inline-block
-  padding: 0
-  margin: 0
+      min-width: 42px
+      min-height: 42px
+      padding: .55rem .9rem
+      color: $text
+      text-decoration: none
+      background: #fff
+      border: 1px solid $border
+      border-radius: 999px
+      box-shadow: 0 8px 18px rgba(15,23,42,.05)
+      transition: transform .2s ease, background-color .2s ease
 
-ul.pagination li {display: inline;}
+      &:hover
+        transform: translateY(-1px)
+        background-color: #eff6ff
 
-ul.pagination li a
-  color: black
-  float: left
-  padding: 8px 16px
-  text-decoration: none
+      &.active
+        color: #fff
+        background-color: #2563eb
+        border-color: #2563eb
 
-ul.pagination li a.active
-  background-color: #4CAF50
-  color: white
+@media (max-width: 768px)
+  .ContainerAdministrarTodosLosEmpleadosBuscador
+    grid-template-columns: 1fr
 
-ul.pagination li a:hover:not(.active)
-  background-color: #ddd
+  .ContainerAdministrarTodosLosEmpleadosDatosTable
+    min-width: 700px

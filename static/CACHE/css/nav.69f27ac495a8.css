@@ -1,0 +1,54 @@
+/* line 1, static/base/nav.scss */
+.navigator {
+  margin: 0;
+  display: grid;
+  width: 100%;
+  height: 50px;
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  grid-template-columns: 5fr 2fr; }
+  /* line 11, static/base/nav.scss */
+  .navigator .navigatorLink {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white; }
+    /* line 18, static/base/nav.scss */
+    .navigator .navigatorLink .navigatorLinkItem {
+      list-style: none;
+      text-decoration: none;
+      color: white;
+      display: grid;
+      align-items: center;
+      width: 100%; }
+      /* line 25, static/base/nav.scss */
+      .navigator .navigatorLink .navigatorLinkItem a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out; }
+      /* line 30, static/base/nav.scss */
+      .navigator .navigatorLink .navigatorLinkItem .navigatorLinkItemImg {
+        height: 30px; }
+  /* line 35, static/base/nav.scss */
+  .navigator .navigatorLinkbtn {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: white; }
+    /* line 40, static/base/nav.scss */
+    .navigator .navigatorLinkbtn .navigatorLinkItembtn {
+      list-style: none;
+      color: white;
+      width: 100%; }
+      /* line 44, static/base/nav.scss */
+      .navigator .navigatorLinkbtn .navigatorLinkItembtn a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out; }
+      /* line 49, static/base/nav.scss */
+      .navigator .navigatorLinkbtn .navigatorLinkItembtn .btnMenu {
+        width: 100%; }

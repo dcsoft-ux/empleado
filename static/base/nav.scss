@@ -1,53 +1,110 @@
+$nav-bg: rgba(15, 23, 42, 0.88);
+$nav-border: rgba(255, 255, 255, 0.10);
+$nav-hover: rgba(255, 255, 255, 0.14);
+$nav-text: #ffffff;
+$nav-shadow: 0 14px 35px rgba(15, 23, 42, 0.22);
+
 .navigator {
   margin: 0;
-  display: grid;
   width: 100%;
-  height: 50px;
-  background-color: blue;
-  position: fixed;
+  min-height: 72px;
+  padding: 0.75rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(180px, 2fr);
+  align-items: center;
+  gap: 1rem;
+  background: $nav-bg;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid $nav-border;
+  box-shadow: $nav-shadow;
+  position: sticky;
   top: 0;
   left: 0;
-  grid-template-columns: 5fr 2fr;
+  z-index: 1000;
+
   .navigatorLink {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navigatorLinkItem,
+  .navigatorLinkItembtn {
+    list-style: none;
+    display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    color: white;
-    .navigatorLinkItem {
-      list-style: none;
-      text-decoration: none;
-      color: white;
-      display: grid;
-      align-items: center;
+
+    a {
       width: 100%;
-      a{
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s ease-in-out;
-      }
-      .navigatorLinkItemImg {
-        height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.8rem 0.85rem;
+      color: $nav-text;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 14px;
+      transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover,
+      &:focus {
+        background-color: $nav-hover;
+        transform: translateY(-1px);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
       }
     }
   }
+
+  .navigatorLinkItemImg {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22));
+  }
+
   .navigatorLinkbtn {
-    display: grid;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
+    justify-content: flex-end;
+  }
+
+  .btnMenu {
+    width: 100%;
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navigator {
+    grid-template-columns: 1fr;
+    padding: 0.9rem;
+
+    .navigatorLink {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .navigatorLinkbtn {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .navigator {
+    .navigatorLink {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navigatorLinkItem,
     .navigatorLinkItembtn {
-      list-style: none;
-      color: white;
-      width: 100%;
-      a{
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s ease-in-out;
-      }
-      .btnMenu {
-        width: 100%;
+      a {
+        font-size: 0.92rem;
+        padding: 0.75rem 0.6rem;
       }
     }
   }
