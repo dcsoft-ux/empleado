@@ -1,0 +1,93 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block tittle %}Habilidades{% endblock tittle %}
+
+{% block body %}
+{% include 'conmon/nav.html' %}
+
+<div class="page">
+    <section class="hero">
+        <div class="hero__panel">
+            <h2 class="hero__title">Gestión de habilidades</h2>
+            <p class="hero__text">
+                Administra las habilidades del personal de forma clara y rápida.
+                Desde aquí puedes crear, editar y eliminar registros.
+            </p>
+
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric__label">Total visibles</span>
+                    <strong class="metric__value">{{ lista_habilidades|length }}</strong>
+                </div>
+                <div class="metric">
+                    <span class="metric__label">Módulo</span>
+                    <strong class="metric__value">Habilidades</strong>
+                </div>
+                <div class="metric">
+                    <span class="metric__label">Estado</span>
+                    <strong class="metric__value">Activo</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__side">
+            <h3 class="card__title">Acción rápida</h3>
+            <p class="card__subtitle">Agrega una nueva habilidad al catálogo.</p>
+
+            <div class="actions" style="margin-top: 18px;">
+                <a class="btn btn-primary" href="{% url 'employer_app:CrearHabilidad' %}">
+                    + Crear habilidad
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="card__header">
+            <div>
+                <h3 class="card__title">Listado de habilidades</h3>
+                <p class="card__subtitle">Catálogo disponible para asignar a empleados.</p>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Habilidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for habilidad in lista_habilidades %}
+                    <tr>
+                        <td>{{ habilidad.id }}</td>
+                        <td>{{ habilidad.skill }}</td>
+                        <td>
+                            <a class="action-link action-edit"
+                               href="{% url 'employer_app:ActualizarHabilidad' habilidad.id %}">
+                               Editar
+                            </a>
+                            <a class="action-link action-delete"
+                               href="{% url 'employer_app:EliminarHabilidad' habilidad.id %}">
+                               Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">
+                            <div class="empty-state">
+                                No hay habilidades registradas.
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock body %}

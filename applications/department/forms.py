@@ -1,8 +1,17 @@
 from django import forms
+from .models import Department
 
 
-class NewDepartamentoForm(forms.Form):
-    name = forms.CharField(max_length=50, required=False)
-    lastname = forms.CharField(max_length=50, required=False)
-    nameDepartment = forms.CharField(max_length=50, required=False)
-    shortNameDepartment = forms.CharField(max_length=5, required=False)
+class DepartmentForm(forms.ModelForm):
+    class Meta:
+        model = Department
+        fields = ['nameDepartment', 'shortNameDepartment', 'activeDepartment']
+        widgets = {
+            'nameDepartment': forms.TextInput(attrs={
+                'placeholder': 'Nombre del departamento'
+            }),
+            'shortNameDepartment': forms.TextInput(attrs={
+                'placeholder': 'Sigla del departamento'
+            }),
+            'activeDepartment': forms.CheckboxInput(),
+        }

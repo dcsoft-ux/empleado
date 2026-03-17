@@ -1,153 +1,98 @@
 {% extends 'base/base.html' %}
-<!-- Se cargan los estáticos-->
 {% load static %}
-<!-- Se importa el título-->
-{%block tittle %} Administrar Empleados {% endblock tittle %}
-<!-- Se importa el body-->
+
+{% block tittle %}Administrar empleados{% endblock tittle %}
+
 {% block body %}
-<!-- Se incluye el menú -->
-{% include 'conmon/nav.html'%}
-<!-- Inicio Bloque contenedor-->
-<div class="ContainerAdministrarTodosLosEmpleados">
-  <!-- Inicio Bloque contenedor título-->
-  <div class="ContainerAdministrarTodosLosEmpleadosTitulo">
-    <h1>Lista de empleados</h1>
-  </div>
-  <!-- Fin Bloque contenedor título-->
-  <!-- Inicio Bloque contenedor data-->
-  <!-- Inicio Bloque formualrio data-->
-  <form action="" method="GET">
-    <div class="ContainerAdministrarTodosLosEmpleadosBuscador">
-      {% csrf_token %}
-      <button
-        type="submit"
-        class="ContainerAdministrarTodosLosEmpleadosBuscadorEspacio"
-      >
-        Buscar
-      </button>
-      <input
-        class="ContainerAdministrarTodosLosEmpleadosBuscadorEspacio"
-        type="text"
-        placeholder="Buscar Empleado"
-        name="kword"
-        id="kword"
-      />
-    </div>
-  </form>
-  <!-- Fin Bloque formualrio data-->
-  <!-- Inicio Bloque Lista Empleados data-->
-  <div class="ContainerAdministrarTodosLosEmpleadosDatos">
-    <table class="ContainerAdministrarTodosLosEmpleadosDatosTable">
-      <thead class="ContainerAdministrarTodosLosEmpleadosDatosTableHead">
-        <tr class="ContainerAdministrarTodosLosEmpleadosDatosTableHeadList">
-          <th
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem"
-          >
-            ID
-          </th>
-          <th
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem"
-          >
-            Apellidos
-          </th>
-          <th
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem"
-          >
-            Nombres
-          </th>
-          <th
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem"
-          >
-            Departamento
-          </th>
-          <th
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem"
-          >
-            Acción
-          </th>
-        </tr>
-      </thead>
-      <tbody class="ContainerAdministrarTodosLosEmpleadosDatosTableBody">
-        {% for employ in lista_empleados %}
-        <tr class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyList">
-          <td
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem"
-          >
-            {{ employ.id }}
-          </td>
-          <td
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem"
-          >
-            {{ employ.name }}
-          </td>
-          <td
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem"
-          >
-            {{ employ.lastname }}
-          </td>
-          <td
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem"
-          >
-            {{ employ.department }}
-          </td>
-          <td
-            class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem"
-          >
-            <a
-              class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer"
-              href="{% url 'employer_app:DetallesDelEmpleado' employ.id  %}"
-              >Ver</a
-            ><a
-              class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar"
-              href="{% url 'employer_app:ActualizarEmpleado' employ.id  %}"
-              >Editar</a
-            ><a
-              class="ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar"
-              href="{% url 'employer_app:EliminarEmpleado' employ.id  %}"
-              >Eliminar</a
-            >
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  <!-- Fin Bloque Lista Empleados data-->
-  <!-- Inicio Bloque Paginador data-->
-  <div>
-    {% if is_paginated %}
-    <ul class="pagination">
-      <!-- Inicio Bloque Paginador data previous-->
-      {% if page_obj.has_previous %}
-      <li>
-        <a href="?page={{ page_obj.previous_page_number }}"><<</a>
-      </li>
-      {% endif %}
-      <!-- Fin Bloque Paginador data previous-->
-      <!-- Inicio Bloque Paginador data páginas-->
-      {% for pagina in paginator.page_range %}
-      <!-- Inicio Bloque Paginador data páginas comparador-->
-      {% if pagina == page_obj.number %}
-      <li><a href="?page={{ pagina }}" class="active">{{ pagina }}</a></li>
-      {% else %}
-      <li><a href="?page={{ pagina }}">{{ pagina }}</a></li>
-      {% endif %}
-      <!-- Fin Bloque Paginador data páginas comparador-->
-      {% endfor %}
-      <!-- Fin Bloque Paginador data páginas-->
-      <!-- Inicion Bloque Paginador data siguiente-->
-      {% if page_obj.has_next %}
-      <li>
-        <a href="?page={{ page_obj.next_page_number }}">>></a>
-      </li>
-      <!-- Fin Bloque Paginador data siguiente-->
-    </ul>
-    {% endif %} {% endif %}
-  </div>
+{% include 'conmon/nav.html' %}
 
-  <!-- Fin Bloque Paginador data-->
+<div class="page">
+    <section class="hero">
+        <div class="hero__panel">
+            <h2 class="hero__title">Administración de empleados</h2>
+            <p class="hero__text">
+                Edita, elimina y revisa rápidamente cada registro desde una tabla clara,
+                con acciones visibles y ordenadas.
+            </p>
+            <div class="actions" style="margin-top: 18px;">
+                <a class="btn btn-primary" href="{% url 'employer_app:CrearEmpleado' %}">+ Crear empleado</a>
+                <a class="btn btn-secondary" href="{% url 'department_app:ListarDepartamentos' %}">Ver departamentos</a>
+                <a class="btn btn-secondary" href="{% url 'employer_app:ListarHabilidades' %}">Ver habilidades</a>
+            </div>
+        </div>
 
-  <!-- Fin Bloque contenedor data-->
+        <div class="hero__side">
+            <h3 class="card__title">Buscar empleado</h3>
+            <p class="card__subtitle">Filtra por apellido para editar más rápido.</p>
+            <form method="get" class="search-box">
+                <input type="text" name="kword" placeholder="Ej: Gómez" value="{{ request.GET.kword }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="card__header">
+            <div>
+                <h3 class="card__title">Panel de control</h3>
+                <p class="card__subtitle">Gestiona empleados con acciones directas.</p>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>Departamento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employ in lista_empleados %}
+                    <tr>
+                        <td>{{ employ.id }}</td>
+                        <td>{{ employ.lastname }}</td>
+                        <td>{{ employ.name }}</td>
+                        <td>{{ employ.department }}</td>
+                        <td>
+                            <a class="action-link action-view" href="{% url 'employer_app:DetallesDelEmpleado' employ.id %}">Ver</a>
+                            <a class="action-link action-edit" href="{% url 'employer_app:ActualizarEmpleado' employ.id %}">Editar</a>
+                            <a class="action-link action-delete" href="{% url 'employer_app:EliminarEmpleado' employ.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">
+                            <div class="empty-state">No hay empleados registrados.</div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">«</a>
+            {% endif %}
+
+            {% for pagina in paginator.page_range %}
+                {% if pagina == page_obj.number %}
+                    <span class="is-active">{{ pagina }}</span>
+                {% else %}
+                    <a href="?page={{ pagina }}">{{ pagina }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">»</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </section>
 </div>
-<!-- Fin Bloque contenedor-->
 {% endblock body %}

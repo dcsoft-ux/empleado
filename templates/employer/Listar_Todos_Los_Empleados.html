@@ -1,125 +1,107 @@
 {% extends 'base/base.html' %}
-<!-- Se cargan los estáticos-->
 {% load static %}
-<!-- Se importa el título-->
-{%block tittle %} Listar Empleados {% endblock tittle %}
-<!-- Se importa el body-->
+
+{% block tittle %}Empleados{% endblock tittle %}
+
 {% block body %}
-<!-- Se incluye el menú -->
-{% include 'conmon/nav.html'%}
-<!-- Inicio Bloque contenedor-->
-<div class="ContainerListarTodosLosEmpleados">
-  <!-- Inicio Bloque contenedor título-->
-  <div class="ContainerListarTodosLosEmpleadosTitulo">
-    <h1>Lista de empleados</h1>
-  </div>
-  <!-- Fin Bloque contenedor título-->
-  <!-- Inicio Bloque contenedor data-->
-  <!-- Inicio Bloque formualrio data-->
-  <form action="" method="GET">
-    <div class="ContainerListarTodosLosEmpleadosBuscador">
-      {% csrf_token %}
-      <button
-        type="submit"
-        class="ContainerListarTodosLosEmpleadosBuscadorEspacio"
-      >
-        Buscar
-      </button>
-      <input
-        class="ContainerListarTodosLosEmpleadosBuscadorEspacio"
-        type="text"
-        placeholder="Buscar Empleado"
-        name="kword"
-        id="kword"
-      />
-    </div>
-  </form>
-  <!-- Fin Bloque formualrio data-->
-  <!-- Inicio Bloque Lista Empleados data-->
-  <div class="ContainerListarTodosLosEmpleadosDatos">
-    <table class="ContainerListarTodosLosEmpleadosDatosTable">
-      <thead class="ContainerListarTodosLosEmpleadosDatosTableHead">
-        <tr class="ContainerListarTodosLosEmpleadosDatosTableHeadList">
-          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
-            ID
-          </th>
-          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
-            Apellidos
-          </th>
-          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
-            Nombres
-          </th>
-          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
-            Departamento
-          </th>
-          <th class="ContainerListarTodosLosEmpleadosDatosTableHeadListItem">
-            Acción
-          </th>
-        </tr>
-      </thead>
-      <tbody class="ContainerListarTodosLosEmpleadosDatosTableBody">
-        {% for employ in lista_empleados %}
-        <tr class="ContainerListarTodosLosEmpleadosDatosTableBodyList">
-          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
-            {{ employ.id }}
-          </td>
-          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
-            {{ employ.name }}
-          </td>
-          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
-            {{ employ.lastname }}
-          </td>
-          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
-            {{ employ.department }}
-          </td>
-          <td class="ContainerListarTodosLosEmpleadosDatosTableBodyListItem">
-            <a
-              class="ContainerListarTodosLosEmpleadosDatosTableBodyListItemLink"
-              href="{% url 'employer_app:DetallesDelEmpleado' employ.id  %}"
-              >Ver</a
-            >
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  <!-- Fin Bloque Lista Empleados data-->
-  <!-- Inicio Bloque Paginador data-->
-  <div>
-    {% if is_paginated %}
-    <ul class="pagination">
-      <!-- Inicio Bloque Paginador data previous-->
-      {% if page_obj.has_previous %}
-      <li>
-        <a href="?page={{ page_obj.previous_page_number }}"><<</a>
-      </li>
-      {% endif %}
-      <!-- Fin Bloque Paginador data previous-->
-      <!-- Inicio Bloque Paginador data páginas-->
-      {% for pagina in paginator.page_range %}
-      <!-- Inicio Bloque Paginador data páginas comparador-->
-      {% if pagina == page_obj.number %}
-      <li><a href="?page={{ pagina }}" class="active">{{ pagina }}</a></li>
-      {% else %}
-      <li><a href="?page={{ pagina }}">{{ pagina }}</a></li>
-      {% endif %}
-      <!-- Fin Bloque Paginador data páginas comparador-->
-      {% endfor %}
-      <!-- Fin Bloque Paginador data páginas-->
-      <!-- Inicion Bloque Paginador data siguiente-->
-      {% if page_obj.has_next %}
-      <li>
-        <a href="?page={{ page_obj.next_page_number }}">>></a>
-      </li>
-      <!-- Fin Bloque Paginador data siguiente-->
-    </ul>
-    {% endif %} {% endif %}
-  </div>
+{% include 'conmon/nav.html' %}
 
-  <!-- Fin Bloque Paginador data-->
+<div class="page">
+    <section class="hero">
+        <div class="hero__panel">
+            <h2 class="hero__title">Listado de empleados</h2>
+            <p class="hero__text">
+                Consulta rápidamente la información del personal, revisa su departamento
+                y entra al detalle con una interfaz más clara.
+            </p>
 
-  <!-- Fin Bloque contenedor data-->
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric__label">Registros visibles</span>
+                    <strong class="metric__value">{{ lista_empleados|length }}</strong>
+                </div>
+                <div class="metric">
+                    <span class="metric__label">Módulo</span>
+                    <strong class="metric__value">Empleados</strong>
+                </div>
+                <div class="metric">
+                    <span class="metric__label">Vista</span>
+                    <strong class="metric__value">Consulta</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__side">
+            <h3 class="card__title">Búsqueda rápida</h3>
+            <p class="card__subtitle">Filtra por apellido.</p>
+
+            <form method="get" class="search-box">
+                <input type="text" name="kword" placeholder="Ej: Pérez" value="{{ request.GET.kword }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="card__header">
+            <div>
+                <h3 class="card__title">Empleados registrados</h3>
+                <p class="card__subtitle">Vista general del personal.</p>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Apellidos</th>
+                        <th>Nombres</th>
+                        <th>Departamento</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employ in lista_empleados %}
+                    <tr>
+                        <td>{{ employ.id }}</td>
+                        <td>{{ employ.lastname }}</td>
+                        <td>{{ employ.name }}</td>
+                        <td>{{ employ.department }}</td>
+                        <td>
+                            <a class="action-link action-view" href="{% url 'employer_app:DetallesDelEmpleado' employ.id %}">Ver detalle</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">
+                            <div class="empty-state">No hay empleados para mostrar.</div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">«</a>
+            {% endif %}
+
+            {% for pagina in paginator.page_range %}
+                {% if pagina == page_obj.number %}
+                    <span class="is-active">{{ pagina }}</span>
+                {% else %}
+                    <a href="?page={{ pagina }}">{{ pagina }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">»</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </section>
 </div>
-<!-- Fin Bloque contenedor-->
 {% endblock body %}

@@ -1,111 +1,95 @@
-$nav-bg: rgba(15, 23, 42, 0.88);
-$nav-border: rgba(255, 255, 255, 0.10);
-$nav-hover: rgba(255, 255, 255, 0.14);
-$nav-text: #ffffff;
-$nav-shadow: 0 14px 35px rgba(15, 23, 42, 0.22);
-
-.navigator {
-  margin: 0;
-  width: 100%;
-  min-height: 72px;
-  padding: 0.75rem 1rem;
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(180px, 2fr);
-  align-items: center;
-  gap: 1rem;
-  background: $nav-bg;
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid $nav-border;
-  box-shadow: $nav-shadow;
+.topbar {
   position: sticky;
   top: 0;
-  left: 0;
   z-index: 1000;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 32px;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 
-  .navigatorLink {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  .navigatorLinkItem,
-  .navigatorLinkItembtn {
-    list-style: none;
+  .topbar__brand {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 14px;
+  }
+
+  .topbar__logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+  }
+
+  .topbar__title {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .topbar__subtitle {
+    margin: 4px 0 0;
+    color: #cbd5e1;
+    font-size: 0.92rem;
+  }
+
+  .topbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 
     a {
-      width: 100%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: 0.8rem 0.85rem;
-      color: $nav-text;
       text-decoration: none;
-      font-weight: 600;
-      border-radius: 14px;
-      transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      color: #e2e8f0;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 12px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      background: transparent;
 
-      &:hover,
-      &:focus {
-        background-color: $nav-hover;
+      &:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .topbar__cta {
+      color: #fff;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      box-shadow: 0 10px 24px rgba(34, 197, 94, 0.28);
+
+      &:hover {
         transform: translateY(-1px);
-        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+        background: linear-gradient(135deg, #16a34a, #15803d);
       }
     }
   }
-
-  .navigatorLinkItemImg {
-    height: 34px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22));
-  }
-
-  .navigatorLinkbtn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  .btnMenu {
-    width: 100%;
-    max-width: 190px;
-  }
 }
 
-@media (max-width: 992px) {
-  .navigator {
-    grid-template-columns: 1fr;
-    padding: 0.9rem;
+@media (max-width: 920px) {
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
 
-    .navigatorLink {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .navigatorLinkbtn {
+    .topbar__nav {
       justify-content: center;
-    }
-  }
-}
-
-@media (max-width: 576px) {
-  .navigator {
-    .navigatorLink {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .navigatorLinkItem,
-    .navigatorLinkItembtn {
-      a {
-        font-size: 0.92rem;
-        padding: 0.75rem 0.6rem;
-      }
     }
   }
 }

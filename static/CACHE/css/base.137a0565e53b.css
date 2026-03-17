@@ -1,0 +1,1016 @@
+/* line 1, static/base/nav.scss */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 32px;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22); }
+  /* line 16, static/base/nav.scss */
+  .topbar .topbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 14px; }
+  /* line 22, static/base/nav.scss */
+  .topbar .topbar__logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35); }
+  /* line 35, static/base/nav.scss */
+  .topbar .topbar__title {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.1; }
+  /* line 43, static/base/nav.scss */
+  .topbar .topbar__subtitle {
+    margin: 4px 0 0;
+    color: #cbd5e1;
+    font-size: 0.92rem; }
+  /* line 49, static/base/nav.scss */
+  .topbar .topbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap; }
+    /* line 55, static/base/nav.scss */
+    .topbar .topbar__nav a {
+      text-decoration: none;
+      color: #e2e8f0;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 12px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      background: transparent; }
+      /* line 65, static/base/nav.scss */
+      .topbar .topbar__nav a:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.1); }
+    /* line 72, static/base/nav.scss */
+    .topbar .topbar__nav .topbar__cta {
+      color: #fff;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      box-shadow: 0 10px 24px rgba(34, 197, 94, 0.28); }
+      /* line 77, static/base/nav.scss */
+      .topbar .topbar__nav .topbar__cta:hover {
+        transform: translateY(-1px);
+        background: linear-gradient(135deg, #16a34a, #15803d); }
+
+@media (max-width: 920px) {
+  /* line 86, static/base/nav.scss */
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px; }
+    /* line 91, static/base/nav.scss */
+    .topbar .topbar__nav {
+      justify-content: center; } }
+
+/* line 1, static/department/main.scss */
+:root {
+  --bg: #0f172a;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --line: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --radius: 20px;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.12); }
+
+/* line 15, static/department/main.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 19, static/department/main.scss */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 28%), radial-gradient(circle at top right, rgba(14, 165, 233, 0.14), transparent 24%), linear-gradient(180deg, #e0f2fe 0%, #f8fafc 35%, #eef2ff 100%);
+  color: var(--text);
+  min-height: 100%; }
+
+/* line 32, static/department/main.scss */
+.app-shell {
+  min-height: 100vh; }
+
+/* line 36, static/department/main.scss */
+.page {
+  max-width: 1240px;
+  margin: 32px auto;
+  padding: 0 22px 40px; }
+
+/* line 42, static/department/main.scss */
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 22px;
+  margin-bottom: 28px; }
+
+/* line 49, static/department/main.scss */
+.hero__panel,
+.hero__side,
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  box-shadow: var(--shadow); }
+
+/* line 58, static/department/main.scss */
+.hero__panel,
+.hero__side {
+  padding: 28px; }
+
+/* line 63, static/department/main.scss */
+.card {
+  padding: 24px;
+  margin-bottom: 24px; }
+
+/* line 68, static/department/main.scss */
+.hero__title,
+.card__title {
+  margin: 0; }
+
+/* line 73, static/department/main.scss */
+.hero__title {
+  font-size: 2.1rem;
+  line-height: 1.05; }
+
+/* line 78, static/department/main.scss */
+.hero__text,
+.card__subtitle {
+  color: var(--muted); }
+
+/* line 83, static/department/main.scss */
+.card__subtitle {
+  margin: 6px 0 0; }
+
+/* line 87, static/department/main.scss */
+.card__header,
+.toolbar,
+.actions,
+.search-box {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center; }
+
+/* line 97, static/department/main.scss */
+.card__header,
+.toolbar {
+  justify-content: space-between; }
+
+/* line 102, static/department/main.scss */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 22px; }
+
+/* line 109, static/department/main.scss */
+.metric {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px; }
+
+/* line 116, static/department/main.scss */
+.metric__label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 8px; }
+
+/* line 123, static/department/main.scss */
+.metric__value {
+  font-size: 1.9rem;
+  font-weight: 800; }
+
+/* line 128, static/department/main.scss */
+.btn,
+button,
+input[type="submit"] {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s ease; }
+
+/* line 140, static/department/main.scss */
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
+  transform: translateY(-1px); }
+
+/* line 146, static/department/main.scss */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #0ea5e9);
+  color: white; }
+
+/* line 151, static/department/main.scss */
+.btn-secondary {
+  background: #e2e8f0;
+  color: var(--text); }
+
+/* line 156, static/department/main.scss */
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, var(--danger));
+  color: white; }
+
+/* line 161, static/department/main.scss */
+input[type="text"],
+input[type="email"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none; }
+
+/* line 176, static/department/main.scss */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12); }
+
+/* line 183, static/department/main.scss */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 20px;
+  border: 1px solid var(--line); }
+
+/* line 189, static/department/main.scss */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white; }
+
+/* line 195, static/department/main.scss */
+thead {
+  background: #eff6ff; }
+
+/* line 199, static/department/main.scss */
+th,
+td {
+  padding: 16px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb; }
+
+/* line 206, static/department/main.scss */
+th {
+  color: #1e3a8a;
+  font-size: 0.92rem;
+  text-transform: uppercase; }
+
+/* line 212, static/department/main.scss */
+tbody tr:hover {
+  background: #f8fafc; }
+
+/* line 216, static/department/main.scss */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.84rem;
+  font-weight: 800; }
+
+/* line 226, static/department/main.scss */
+.badge-success {
+  background: #dcfce7;
+  color: #166534; }
+
+/* line 231, static/department/main.scss */
+.badge-muted {
+  background: #e2e8f0;
+  color: #334155; }
+
+/* line 236, static/department/main.scss */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px; }
+
+/* line 242, static/department/main.scss */
+.form-grid .full {
+  grid-column: 1 / -1; }
+
+/* line 246, static/department/main.scss */
+.form-panel {
+  max-width: 920px;
+  margin: 36px auto; }
+
+/* line 251, static/department/main.scss */
+.form-panel form p {
+  margin: 0 0 16px; }
+
+/* line 255, static/department/main.scss */
+.form-panel label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px; }
+
+/* line 261, static/department/main.scss */
+.alert-danger {
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca; }
+
+/* line 269, static/department/main.scss */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap; }
+
+/* line 277, static/department/main.scss */
+.pagination a,
+.pagination span {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--text); }
+
+/* line 292, static/department/main.scss */
+.pagination .is-active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary); }
+
+/* line 298, static/department/main.scss */
+.empty-state {
+  padding: 32px;
+  text-align: center;
+  color: var(--muted); }
+
+/* line 304, static/department/main.scss */
+a.action-link {
+  text-decoration: none;
+  font-weight: 800;
+  margin-right: 10px; }
+
+/* line 310, static/department/main.scss */
+a.action-edit {
+  color: var(--primary); }
+
+/* line 314, static/department/main.scss */
+a.action-view {
+  color: #0f766e; }
+
+/* line 318, static/department/main.scss */
+a.action-delete {
+  color: var(--danger); }
+
+@media (max-width: 900px) {
+  /* line 323, static/department/main.scss */
+  .hero,
+  .form-grid,
+  .metrics {
+    grid-template-columns: 1fr; }
+  /* line 329, static/department/main.scss */
+  .page {
+    padding: 0 14px 32px; }
+  /* line 333, static/department/main.scss */
+  .hero__title {
+    font-size: 1.7rem; } }
+
+/* line 338, static/department/main.scss */
+.table-wrap .action-link {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 12px; }
+
+/* line 344, static/department/main.scss */
+.table-wrap td:last-child {
+  white-space: nowrap; }
+
+/* line 348, static/department/main.scss */
+.hero__side .actions {
+  margin-top: 16px; }
+
+/* line 1, static/home/home.sass */
+.ImgContainer {
+  width: 92%;
+  max-width: 1150px;
+  min-height: calc(100vh - 180px);
+  margin: 1.5rem auto 2rem;
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(239, 246, 255, 0.96) 100%);
+  box-shadow: 0 22px 50px rgba(37, 99, 235, 0.1); }
+  /* line 14, static/home/home.sass */
+  .ImgContainer img {
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 30px rgba(37, 99, 235, 0.15)); }
+
+/* line 21, static/home/home.sass */
+.Welcome {
+  width: 92%;
+  max-width: 900px;
+  margin: 1rem auto 3rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: .85rem;
+  padding: 1.75rem 1.25rem;
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06); }
+
+/* line 7, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleados {
+  width: 94%;
+  max-width: 1250px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1.5rem; }
+
+/* line 14, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosTitulo {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: .45rem; }
+
+/* line 20, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosBuscador {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem; }
+
+/* line 25, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosBuscadorEspacio {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #dbe7f5;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04); }
+
+/* line 32, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosDatos {
+  padding: 1rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #dbe7f5;
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07);
+  overflow-x: auto; }
+
+/* line 41, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosDatosTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; }
+
+/* line 46, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosDatosTableHeadListItem {
+  padding: 1rem .85rem;
+  text-align: center;
+  color: #0f172a;
+  background: #eff6ff;
+  border-top: 1px solid #dbe7f5;
+  border-bottom: 1px solid #dbe7f5;
+  font-weight: 700; }
+  /* line 55, static/empleado/Listar_Todos_Los_Empleados.sass */
+  .ContainerListarTodosLosEmpleadosDatosTableHeadListItem:first-child {
+    border-left: 1px solid #dbe7f5;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px; }
+  /* line 60, static/empleado/Listar_Todos_Los_Empleados.sass */
+  .ContainerListarTodosLosEmpleadosDatosTableHeadListItem:last-child {
+    border-right: 1px solid #dbe7f5;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px; }
+
+/* line 65, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosDatosTableBodyListItem {
+  padding: 1rem .85rem;
+  text-align: center;
+  color: #475569;
+  background: #ffffff;
+  border-top: 1px solid #eef2f7;
+  border-bottom: 1px solid #eef2f7; }
+  /* line 73, static/empleado/Listar_Todos_Los_Empleados.sass */
+  .ContainerListarTodosLosEmpleadosDatosTableBodyListItem:first-child {
+    border-left: 1px solid #eef2f7;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px; }
+  /* line 78, static/empleado/Listar_Todos_Los_Empleados.sass */
+  .ContainerListarTodosLosEmpleadosDatosTableBodyListItem:last-child {
+    border-right: 1px solid #eef2f7;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px; }
+
+/* line 83, static/empleado/Listar_Todos_Los_Empleados.sass */
+.ContainerListarTodosLosEmpleadosDatosTableBodyListItemLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: .55rem .95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  background: #166534;
+  font-weight: 700;
+  transition: transform .2s ease, filter .2s ease; }
+  /* line 96, static/empleado/Listar_Todos_Los_Empleados.sass */
+  .ContainerListarTodosLosEmpleadosDatosTableBodyListItemLink:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.03); }
+
+/* line 100, static/empleado/Listar_Todos_Los_Empleados.sass */
+ul.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  padding: 0;
+  margin: 1.2rem 0 0;
+  list-style: none; }
+  /* line 109, static/empleado/Listar_Todos_Los_Empleados.sass */
+  ul.pagination li {
+    display: inline-flex; }
+    /* line 112, static/empleado/Listar_Todos_Los_Empleados.sass */
+    ul.pagination li a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 42px;
+      padding: .55rem .9rem;
+      color: #0f172a;
+      text-decoration: none;
+      background: #fff;
+      border: 1px solid #dbe7f5;
+      border-radius: 999px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      transition: transform .2s ease, background-color .2s ease; }
+      /* line 127, static/empleado/Listar_Todos_Los_Empleados.sass */
+      ul.pagination li a:hover {
+        transform: translateY(-1px);
+        background-color: #eff6ff; }
+      /* line 131, static/empleado/Listar_Todos_Los_Empleados.sass */
+      ul.pagination li a.active {
+        background-color: #2563eb;
+        border-color: #2563eb;
+        color: #fff; }
+
+@media (max-width: 768px) {
+  /* line 137, static/empleado/Listar_Todos_Los_Empleados.sass */
+  .ContainerListarTodosLosEmpleadosBuscador {
+    grid-template-columns: 1fr; }
+  /* line 140, static/empleado/Listar_Todos_Los_Empleados.sass */
+  .ContainerListarTodosLosEmpleadosDatosTable {
+    min-width: 700px; } }
+
+/* line 1, static/empleado/DetalleEmpleado.sass */
+.ContainerDetalleEmpleado {
+  width: 92%;
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #dbe7f5;
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07); }
+
+/* line 13, static/empleado/DetalleEmpleado.sass */
+.ContainerDetalleEmpleadoName,
+.ContainerDetalleEmpleadoTittle {
+  text-align: center; }
+
+/* line 17, static/empleado/DetalleEmpleado.sass */
+.ContainerDetalleEmpleadoTable {
+  width: 100%;
+  overflow-x: auto;
+  padding: .25rem; }
+
+/* line 22, static/empleado/DetalleEmpleado.sass */
+.ContainerDetalleEmpleadoTableList {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; }
+
+/* line 27, static/empleado/DetalleEmpleado.sass */
+.ContainerDetalleEmpleadoTableListItem {
+  padding: 1rem .85rem;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid #eef2f7;
+  border-bottom: 1px solid #eef2f7; }
+  /* line 34, static/empleado/DetalleEmpleado.sass */
+  .ContainerDetalleEmpleadoTableListItem:first-child {
+    border-left: 1px solid #eef2f7;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px; }
+  /* line 39, static/empleado/DetalleEmpleado.sass */
+  .ContainerDetalleEmpleadoTableListItem:last-child {
+    border-right: 1px solid #eef2f7;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px; }
+
+/* line 1, static/departamento/ListarDepartamentos.sass */
+.DepartamentosContainer {
+  width: 92%;
+  max-width: 1150px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1.6rem; }
+
+/* line 8, static/departamento/ListarDepartamentos.sass */
+.DepartamentosContainerTitle {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: .5rem; }
+
+/* line 14, static/departamento/ListarDepartamentos.sass */
+.DepartamentosContainerSpace {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid #dbe7f5;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06); }
+
+/* line 24, static/departamento/ListarDepartamentos.sass */
+.DepartamentosContainerItem {
+  min-height: 140px;
+  padding: 1.2rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid #dbe7f5;
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08);
+  transition: transform .2s ease, box-shadow .2s ease; }
+  /* line 36, static/departamento/ListarDepartamentos.sass */
+  .DepartamentosContainerItem:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.12); }
+
+/* line 1, static/empleado/EmpledosPorDepartamentos.sass */
+.EmpledosPorDepartamentosContainer {
+  width: 92%;
+  max-width: 1150px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1.5rem; }
+
+/* line 8, static/empleado/EmpledosPorDepartamentos.sass */
+.EmpledosPorDepartamentosContainerTitle {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: .5rem; }
+
+/* line 14, static/empleado/EmpledosPorDepartamentos.sass */
+.EmpledosPorDepartamentosContainerSpace {
+  display: grid;
+  gap: 1rem;
+  margin-top: .25rem;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dbe7f5;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06); }
+
+/* line 10, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleados {
+  width: 94%;
+  max-width: 1250px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1.5rem; }
+
+/* line 17, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosTitulo {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: .45rem; }
+
+/* line 23, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosBuscador {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem; }
+
+/* line 28, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosBuscadorEspacio {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #dbe7f5;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04); }
+
+/* line 35, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatos {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #dbe7f5;
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07);
+  overflow-x: auto; }
+
+/* line 43, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatosTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; }
+
+/* line 48, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem {
+  padding: 1rem .85rem;
+  text-align: center;
+  color: #0f172a;
+  background: #eff6ff;
+  border-top: 1px solid #dbe7f5;
+  border-bottom: 1px solid #dbe7f5;
+  font-weight: 700; }
+  /* line 57, static/empleado/AdministrarTodosLosEmpleados.sass */
+  .ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem:first-child {
+    border-left: 1px solid #dbe7f5;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px; }
+  /* line 62, static/empleado/AdministrarTodosLosEmpleados.sass */
+  .ContainerAdministrarTodosLosEmpleadosDatosTableHeadListItem:last-child {
+    border-right: 1px solid #dbe7f5;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px; }
+
+/* line 67, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem {
+  padding: 1rem .85rem;
+  text-align: center;
+  color: #475569;
+  background: #ffffff;
+  border-top: 1px solid #eef2f7;
+  border-bottom: 1px solid #eef2f7; }
+  /* line 75, static/empleado/AdministrarTodosLosEmpleados.sass */
+  .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem:first-child {
+    border-left: 1px solid #eef2f7;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px; }
+  /* line 80, static/empleado/AdministrarTodosLosEmpleados.sass */
+  .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItem:last-child {
+    border-right: 1px solid #eef2f7;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px; }
+
+/* line 85, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer,
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar,
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 74px;
+  padding: .55rem .85rem;
+  margin: .2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .2s ease, filter .2s ease; }
+  /* line 99, static/empleado/AdministrarTodosLosEmpleados.sass */
+  .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer:hover,
+  .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar:hover,
+  .ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.02); }
+
+/* line 103, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkVer {
+  color: #fff;
+  background-color: #15803d; }
+
+/* line 107, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEditar {
+  color: #fff;
+  background-color: #d97706; }
+
+/* line 111, static/empleado/AdministrarTodosLosEmpleados.sass */
+.ContainerAdministrarTodosLosEmpleadosDatosTableBodyListItemLinkEliminar {
+  color: #fff;
+  background-color: #dc2626; }
+
+/* line 115, static/empleado/AdministrarTodosLosEmpleados.sass */
+ul.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  padding: 0;
+  margin: 1.2rem 0 0;
+  list-style: none; }
+  /* line 124, static/empleado/AdministrarTodosLosEmpleados.sass */
+  ul.pagination li {
+    display: inline-flex; }
+    /* line 127, static/empleado/AdministrarTodosLosEmpleados.sass */
+    ul.pagination li a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 42px;
+      padding: .55rem .9rem;
+      color: #0f172a;
+      text-decoration: none;
+      background: #fff;
+      border: 1px solid #dbe7f5;
+      border-radius: 999px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      transition: transform .2s ease, background-color .2s ease; }
+      /* line 142, static/empleado/AdministrarTodosLosEmpleados.sass */
+      ul.pagination li a:hover {
+        transform: translateY(-1px);
+        background-color: #eff6ff; }
+      /* line 146, static/empleado/AdministrarTodosLosEmpleados.sass */
+      ul.pagination li a.active {
+        color: #fff;
+        background-color: #2563eb;
+        border-color: #2563eb; }
+
+@media (max-width: 768px) {
+  /* line 152, static/empleado/AdministrarTodosLosEmpleados.sass */
+  .ContainerAdministrarTodosLosEmpleadosBuscador {
+    grid-template-columns: 1fr; }
+  /* line 155, static/empleado/AdministrarTodosLosEmpleados.sass */
+  .ContainerAdministrarTodosLosEmpleadosDatosTable {
+    min-width: 700px; } }
+
+/* line 1, static/empleado/ActualizarEmpleado.sass */
+.ActualizarEmpleadoContainer {
+  width: 92%;
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1.4rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #dbe7f5;
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07); }
+
+/* line 13, static/empleado/ActualizarEmpleado.sass */
+.ActualizarEmpleadoContainerTitle {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: .45rem; }
+
+/* line 1, static/empleado/EliminarEmpleado.sass */
+.EliminarEmpleadoContainer {
+  width: 92%;
+  max-width: 760px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #dbe7f5;
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07); }
+
+/* line 29, static/base/base.sass */
+* {
+  box-sizing: border-box; }
+
+/* line 32, static/base/base.sass */
+html {
+  scroll-behavior: smooth; }
+
+/* line 35, static/base/base.sass */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0f172a;
+  background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 48%, #f4f7fb 100%); }
+
+/* line 42, static/base/base.sass */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.15;
+  color: #0f172a; }
+
+/* line 47, static/base/base.sass */
+p {
+  color: #475569;
+  line-height: 1.6; }
+
+/* line 51, static/base/base.sass */
+a {
+  transition: all .25s ease; }
+
+/* line 54, static/base/base.sass */
+img {
+  max-width: 100%;
+  display: block; }
+
+/* line 58, static/base/base.sass */
+input, select, textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: .85rem 1rem;
+  border: 1px solid #dbe7f5;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #0f172a;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+  /* line 69, static/base/base.sass */
+  input:focus, select:focus, textarea:focus {
+    border-color: rgba(37, 99, 235, 0.55);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12); }
+
+/* line 73, static/base/base.sass */
+button,
+input[type="submit"],
+input[type="button"] {
+  min-height: 46px;
+  padding: .8rem 1.15rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.18);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+  /* line 88, static/base/base.sass */
+  button:hover,
+  input[type="submit"]:hover,
+  input[type="button"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(37, 99, 235, 0.24);
+    filter: brightness(1.02); }
+
+/* line 93, static/base/base.sass */
+table {
+  width: 100%;
+  border-collapse: collapse; }
+
+/* line 97, static/base/base.sass */
+main {
+  padding-bottom: 110px; }
+
+@media (max-width: 768px) {
+  /* line 101, static/base/base.sass */
+  body {
+    font-size: 15px; } }

@@ -1,20 +1,19 @@
 {% load static %}
+{% load compress %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% load compress %} {% compress css %}
-    <link
-      type="text/x-scss"
-      href="{% static 'base/base.sass' %}"
-      rel="stylesheet"
-      media="screen"
-    />
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tittle %}Gestión de empleados{% endblock tittle %}</title>
+
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'base/base.sass' %}">
     {% endcompress %}
-    <title>{% block tittle %} {% endblock tittle %}</title>
-  </head>
-  <body>
-    {% block body %} {% endblock body %}
-  </body>
+</head>
+<body class="app-body">
+    <div class="app-shell">
+        {% block body %}{% endblock body %}
+    </div>
+</body>
 </html>

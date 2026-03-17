@@ -1,11 +1,11 @@
 {% extends 'base/base.html' %}
 {% block body %}
 {% include 'conmon/nav.html' %}
-<h1>Crear departamento</h1>
+<h1>Actualizar departamento</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    <button type="submit">Actualizar</button>
 </form>
 <a href="{% url 'department_app:ListarDepartamentos' %}">Volver</a>
 {% endblock body %}

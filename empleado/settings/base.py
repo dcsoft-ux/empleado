@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'applications.department',
     'applications.employer',
     'applications.home',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

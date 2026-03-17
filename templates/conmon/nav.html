@@ -1,51 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% load static %} {% load compress %} {% compress css %}
-    <link
-      type="text/x-scss"
-      href="{% static 'base/nav.scss' %}"
-      rel="stylesheet"
-      media="screen"
-    />
-    {% endcompress %} {% include '../conmon/tittle.html' %}
-  </head>
-  <body>
-    <nav class="navigator">
-      <ul class="navigatorLink">
-        <li class="navigatorLinkItem">
-          <img
-            class="navigatorLinkItemImg"
-            src="{% static 'images/Django.png' %}"
-            alt=""
-          />
-        </li>
-        <li class="navigatorLinkItem">
-          <a href="{% url 'employer_app:ListarTodosLosEmpleados' %}">Listar</a>
-        </li>
-        <li class="navigatorLinkItem">
-          <a href="{% url 'department_app:ListarDepartamentos' %}"
-            >Departamentos</a
-          >
-        </li>
-        <li class="navigatorLinkItem">
-          <a href="{% url 'department_app:CrearDepartamento' %}"
-            >Crear Departamento</a
-          >
-        </li>
-        <li class="navigatorLinkItem">
-          <a href="{% url 'employer_app:AdministrarTodosLosEmpleados' %}"
-            >Administrar</a
-          >
-        </li>
-      </ul>
-      <ul class="navigatorLinkbtn">
-        <li class="navigatorLinkItembtn">
-          <a href="{% url 'employer_app:CrearEmpleado' %}">Crear empleado</a>
-        </li>
-      </ul>
+{% load static %}
+
+<header class="topbar">
+    <div class="topbar__brand">
+        <div class="topbar__logo">DR</div>
+        <div>
+            <h1 class="topbar__title">Gestión de Personal</h1>
+            <p class="topbar__subtitle">Administra empleados, departamentos y habilidades</p>
+        </div>
+    </div>
+
+    <nav class="topbar__nav">
+        <a href="{% url 'employer_app:ListarTodosLosEmpleados' %}">Empleados</a>
+        <a href="{% url 'employer_app:AdministrarTodosLosEmpleados' %}">Administrar</a>
+        <a href="{% url 'department_app:ListarDepartamentos' %}">Departamentos</a>
+        <a href="{% url 'employer_app:ListarHabilidades' %}">Habilidades</a>
+        <a href="{% url 'department_app:api_home' %}">API</a>
+        <a href="{% url 'department_app:editar_local_settings' %}">Configuración</a>
+        <a class="topbar__cta" href="{% url 'employer_app:CrearEmpleado' %}">+ Nuevo empleado</a>
     </nav>
-  </body>
-</html>
+</header>

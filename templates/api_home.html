@@ -1,0 +1,107 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block tittle %}API CRUD{% endblock tittle %}
+
+{% block body %}
+{% include 'conmon/nav.html' %}
+
+<div class="page">
+    <section class="hero">
+        <div class="hero__panel">
+            <h2 class="hero__title">API CRUD del sistema</h2>
+            <p class="hero__text">
+                Cada recurso tiene dos tipos de rutas:
+                una para listar/crear y otra para ver, actualizar o eliminar un registro específico.
+            </p>
+
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric__label">Recursos</span>
+                    <strong class="metric__value">3</strong>
+                </div>
+                <div class="metric">
+                    <span class="metric__label">Operaciones</span>
+                    <strong class="metric__value">CRUD</strong>
+                </div>
+                <div class="metric">
+                    <span class="metric__label">Formato</span>
+                    <strong class="metric__value">JSON</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__side">
+            <h3 class="card__title">Acceso rápido</h3>
+            <p class="card__subtitle">Abre los endpoints principales.</p>
+            <div class="actions">
+                <a class="btn btn-primary" href="/api/empleados/">Empleados</a>
+                <a class="btn btn-primary" href="/api/departamentos/">Departamentos</a>
+                <a class="btn btn-primary" href="/api/habilidades/">Habilidades</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="card__header">
+            <div>
+                <h3 class="card__title">Cómo usar cada endpoint</h3>
+                <p class="card__subtitle">Usa la ruta de lista para crear y la de detalle para editar o eliminar.</p>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Recurso</th>
+                        <th>Listar / Crear</th>
+                        <th>Ver / Actualizar / Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Empleados</td>
+                        <td>
+                            <a class="action-link action-view" href="/api/empleados/">
+                                /api/empleados/
+                            </a>
+                        </td>
+                        <td>
+                            <a class="action-link action-edit" href="/api/empleados/1/">
+                                /api/empleados/1/
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Departamentos</td>
+                        <td>
+                            <a class="action-link action-view" href="/api/departamentos/">
+                                /api/departamentos/
+                            </a>
+                        </td>
+                        <td>
+                            <a class="action-link action-edit" href="/api/departamentos/1/">
+                                /api/departamentos/1/
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Habilidades</td>
+                        <td>
+                            <a class="action-link action-view" href="/api/habilidades/">
+                                /api/habilidades/
+                            </a>
+                        </td>
+                        <td>
+                            <a class="action-link action-edit" href="/api/habilidades/1/">
+                                /api/habilidades/1/
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock body %}

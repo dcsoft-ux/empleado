@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
-{% block tittle %}Eliminar empleado{% endblock tittle %}
+{% block tittle %}Eliminar habilidad{% endblock tittle %}
 
 {% block body %}
 {% include 'conmon/nav.html' %}
@@ -10,19 +10,21 @@
     <section class="card form-panel">
         <h2 class="card__title">Confirmar eliminación</h2>
         <p class="card__subtitle">
-            Vas a eliminar a <strong>{{ object.name }} {{ object.lastname }}</strong>.
-            Esta acción no se puede deshacer.
+            Vas a eliminar la habilidad:
+            <strong>{{ object.skill }}</strong>
         </p>
 
         <div class="alert-danger" style="margin-top: 18px;">
-            Revisa bien antes de continuar.
+            Esta acción no se puede deshacer.
         </div>
 
         <form method="post" style="margin-top: 20px;">
             {% csrf_token %}
             <div class="actions">
                 <button type="submit" class="btn btn-danger">Sí, eliminar</button>
-                <a class="btn btn-secondary" href="{% url 'employer_app:AdministrarTodosLosEmpleados' %}">Cancelar</a>
+                <a class="btn btn-secondary" href="{% url 'employer_app:ListarHabilidades' %}">
+                    Cancelar
+                </a>
             </div>
         </form>
     </section>

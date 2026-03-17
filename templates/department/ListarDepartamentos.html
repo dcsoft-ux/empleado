@@ -1,33 +1,62 @@
 {% extends 'base/base.html' %}
-<!-- Se cargan los estáticos-->
 {% load static %}
-<!-- Se importa el título-->
-{%block tittle %} Listar Departamentos {% endblock tittle %}
-<!-- Se importa el body-->
+
+{% block tittle %}Departamentos{% endblock tittle %}
+
 {% block body %}
-<!-- Se incluye el menú -->
-{% include 'conmon/nav.html'%}
-<!-- Inicio Bloque contenedor-->
-<div class="DepartamentosContainer">
-  <h1 class="DepartamentosContainerTitle">Listar Departamentos</h1>
-  <div class="DepartamentosContainerSpace">
-    {% for departamento in lista_empleados_departamento %}
-    <div class="DepartamentosContainerItem">
-      {{ departamento.nameDepartment }}
-    </div>
-    <div class="DepartamentosContainerItem">
-      {{ departamento.shortNameDepartment }}
-    </div>
-    <div class="DepartamentosContainerItem">
-      <a
-        href="{% url 'employer_app:ListarEmpleadosPorArea' departamento.shortNameDepartment %}"
-        >Ver empleados {{ departamento.shortNameDepartment }}</a
-      >
-    </div>
-    {% endfor %}
-  </div>
-  <div class="DepartamentosContainerSpace"></div>
-  <div class="DepartamentosContainerSpace"></div>
+{% include 'conmon/nav.html' %}
+
+<div class="page">
+    <section class="card">
+        <div class="card__header">
+            <div>
+                <h2 class="card__title">Departamentos</h2>
+                <p class="card__subtitle">Administra las áreas de la empresa de forma simple.</p>
+            </div>
+            <div class="actions">
+                <a class="btn btn-primary" href="{% url 'department_app:CrearDepartamento' %}">+ Crear departamento</a>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Sigla</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in lista_departamentos %}
+                    <tr>
+                        <td>{{ d.id }}</td>
+                        <td>{{ d.nameDepartment }}</td>
+                        <td>{{ d.shortNameDepartment }}</td>
+                        <td>
+                            {% if d.activeDepartment %}
+                                <span class="badge badge-success">Activo</span>
+                            {% else %}
+                                <span class="badge badge-muted">Inactivo</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a class="action-link action-edit" href="{% url 'department_app:ActualizarDepartamento' d.id %}">Editar</a>
+                            <a class="action-link action-delete" href="{% url 'department_app:EliminarDepartamento' d.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">
+                            <div class="empty-state">No hay departamentos registrados.</div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
 </div>
-<!-- Fin Bloque contenedor-->
 {% endblock body %}

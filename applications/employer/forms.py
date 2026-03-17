@@ -1,17 +1,22 @@
 from django import forms
-
-from .models import Employer
+from .models import Employer, Skills
 
 
 class EmpleadoForm(forms.ModelForm):
-    """Form definition for Empleado."""
-
     class Meta:
-        """Meta definition for Empleadoform."""
-
         model = Employer
-        fields = ('name', 'lastname', 'job',
-                  'department', 'cv', 'avatar', 'fullname', 'skills',)
+        fields = ('name', 'lastname', 'job', 'department', 'cv', 'avatar', 'fullname', 'skills')
         widgets = {
             'skills': forms.CheckboxSelectMultiple()
+        }
+
+
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model = Skills
+        fields = ['skill']
+        widgets = {
+            'skill': forms.TextInput(attrs={
+                'placeholder': 'Ingrese la habilidad'
+            })
         }

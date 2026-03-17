@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% include 'conmon/nav.html' %}
+<h1>Eliminar departamento</h1>
+<p>¿Seguro que deseas eliminar <strong>{{ object.nameDepartment }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+</form>
+<a href="{% url 'department_app:ListarDepartamentos' %}">Cancelar</a>
+{% endblock body %}
